@@ -35,8 +35,9 @@ primefactors = np.asarray(pf)
 pstr = []
 for i in range(0, len(primefactors)):
     pstr.append("%d" % primefactors[i])
-primetime = " * ".join(pstr)
+primetime = "x".join(pstr)
 
 print t.strftime("%H:%M:%S")
 
 print primetime
+
