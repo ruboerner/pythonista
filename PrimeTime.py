@@ -7,6 +7,7 @@ Created on Mon Jan 18 13:01:42 2016
 
 from datetime import datetime
 from scene import *
+import numpy as np
 
 def factors(n):
     gaps = [1,2,2,4,2,4,2,4,6,2,6]
@@ -26,19 +27,23 @@ def factors(n):
 
 class Clock(Scene):
     def setup(self):
+        self.hue = 0.0
+        self.prev_touch = None
         self.background_color = '#262b30'
         self.instructions = LabelNode('The Prime Time Clock',
                                       ('HelveticaNeue-Light', 24),
                                       position = self.size/2,
                                       parent=self)
-     def did_change_size(self):
+    def did_change_size(self):
         self.instructions.position = self.size / 2
 
-     def touch_began(self, touch):
+    def touch_began(self, touch):
         if self.instructions:
+            self.instructions.run_action(Action.fade_to(0, 1))
             self.instructions = None
+        self.prev_touch = touch.location
 
-    def update(self)
+    def update(self):
         t = datetime.now()
         seconds = t.second
         minutes = t.minute
