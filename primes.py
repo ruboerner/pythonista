@@ -32,10 +32,10 @@ pf = factors(tt)
 
 primefactors = np.asarray(pf)
 
-str = []
+pstr = []
 for i in range(0, len(primefactors)):
-    str.append("%d" % primefactors[i])
-primetime = " * ".join(str)
+    pstr.append("%d" % primefactors[i])
+primetime = " * ".join(pstr)
 
 print t.strftime("%H:%M:%S")
 
