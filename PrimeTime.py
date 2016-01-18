@@ -8,23 +8,23 @@ Created on Mon Jan 18 13:01:42 2016
 from datetime import datetime
 from scene import *
 
+def factors(n):
+    gaps = [1,2,2,4,2,4,2,4,6,2,6]
+    length, cycle = 11, 3
+    f, fs, next = 2, [], 0
+    while f * f <= n:
+        while n % f == 0:
+            fs.append(f)
+            n /= f
+        f += gaps[next]
+        next += 1
+        if next == length:
+            next = cycle
+    if n > 1: fs.append(n)
+    return fs
+
 
 class Clock(Scene):
-    def factors(n):
-        gaps = [1,2,2,4,2,4,2,4,6,2,6]
-        length, cycle = 11, 3
-        f, fs, next = 2, [], 0
-        while f * f <= n:
-            while n % f == 0:
-                fs.append(f)
-                n /= f
-            f += gaps[next]
-            next += 1
-            if next == length:
-                next = cycle
-        if n > 1: fs.append(n)
-        return fs
-        
     def setup(self):
         self.background_color = '#262b30'
         self.instructions = LabelNode('The Prime Time Clock',
