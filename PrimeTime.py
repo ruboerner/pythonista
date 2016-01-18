@@ -44,6 +44,7 @@ class Clock(Scene):
         self.prev_touch = touch.location
 
     def update(self):
+        self.instructions.run_action(Action.remove())
         t = datetime.now()
         seconds = t.second
         minutes = t.minute
@@ -58,7 +59,9 @@ class Clock(Scene):
         pstr = []
         for i in range(0, len(primefactors)):
             pstr.append("%d" % primefactors[i])
-        self.instructions = "x".join(pstr)                        
+        self.instructions = LabelNode("x".join(pstr), ('HelveticaNeue-Light', 24),
+                                      position = self.size/2,
+                                      parent=self)                   
                                     
 if __name__ == '__main__':
     run(Clock())
