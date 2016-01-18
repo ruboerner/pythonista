@@ -4,7 +4,6 @@ Find prime numbers.
 """
 
 import numpy as np
-import string
 from datetime import datetime
 
 def factors(n):
@@ -34,9 +33,10 @@ pf = factors(tt)
 primefactors = np.asarray(pf)
 
 str = []
-for i in range(1, len(primefactors)):
+for i in range(0, len(primefactors)):
     str.append("%d" % primefactors[i])
 primetime = " * ".join(str)
 
 print t.strftime("%H:%M:%S")
+
 print primetime
