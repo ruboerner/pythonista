@@ -60,7 +60,7 @@ class Clock(Scene):
         for i in range(0, len(primefactors)):
             pstr.append("%d" % primefactors[i])
         self.instructions = LabelNode("x".join(pstr), ('HelveticaNeue-Light', 24),
-                                      position = self.size/2,
+                                      position = self.size / 2,
                                       parent=self)                   
                                     
 if __name__ == '__main__':
